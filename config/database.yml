@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: username
+  password: password
+
+development:
+  <<: *default
+  database: aparment_sample_pg_development
+
+test:
+  <<: *default
+  database: aparment_sample_pg_test
+
+production:
+  <<: *default
+  database: aparment_sample_pg_production
+  username: aparment_sample_pg
+  password: <%= ENV['APARMENT_SAMPLE_PG_DATABASE_PASSWORD'] %>
